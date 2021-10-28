@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../SharedComponent/Header/Navbar";
-import Banner from "./Component/Header/Banner";
+import Banner from "./Component/Banner/Banner";
 
 const Home = () => {
   return (
