@@ -1,0 +1,12 @@
+/* banner section sytles */
+.banner_container {
+  position: relative;
+}
+
+.banner_text_info_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  z-index: 1000;
+}
