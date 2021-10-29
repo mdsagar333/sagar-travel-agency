@@ -7,14 +7,17 @@ import {
   BsMailbox,
 } from "react-icons/bs";
 import { VscArrowSmallRight } from "react-icons/vsc";
+import logoFooter from "../../../assets/image/logo_travel_.png";
 
 const Footer = () => {
   return (
     <footer className="bg_black pt-4">
       <div className="container text-light">
-        <div className="row g-4 my-2">
-          <section className="col-12 col-md-6 col-lg-2 mb-3">
-            <h3>Logo</h3>
+        <div className="row g-3 my-2">
+          <section className="col-12 col-md-6 col-lg-2 mb-3 d-flex justify-content-start">
+            <a href="">
+              <img src={logoFooter} alt="logo footer" className="custom_logo" />
+            </a>
           </section>
           <section className="col-12 col-md-6 col-lg-4 mb-3">
             <h5 className="text-uppercase mb-3">address and contact info</h5>

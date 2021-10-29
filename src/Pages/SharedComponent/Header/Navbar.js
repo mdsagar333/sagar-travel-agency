@@ -1,12 +1,13 @@
 import React from "react";
+import logo from "../../../assets/image/logo_travel_.png";
 
 const Navbar = () => {
   return (
-    <div className="container bg-light">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="container">
+      <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Sagar Travel
+            <img src={logo} alt="logo" className="custom_logo" />
           </a>
           <button
             className="navbar-toggler"
@@ -22,18 +23,30 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a
+                  className="nav-link fw-bold active"
+                  aria-current="page"
+                  href="#"
+                >
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Features
+                <a className="nav-link fw-bold active" href="#">
+                  About us
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Pricing
+                <a className="nav-link fw-bold active" href="#">
+                  Tours
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link fw-bold active btn-danger text-light px-3 rounded-pill"
+                  href="#"
+                >
+                  Register
                 </a>
               </li>
             </ul>

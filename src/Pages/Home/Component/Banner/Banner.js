@@ -5,11 +5,17 @@ const Banner = () => {
   return (
     <div className="banner_container">
       {/* banner text info */}
-      <div className="banner_text_info_container">
-        <h1>Let's see the world together !</h1>
-        <h3>keep the world in your hand.</h3>
-        <p>Best places for your next travel are here check them out.</p>
-        <button>See availabe tour</button>
+      <div className="banner_text_info_container p-4 d-flex justify-content-center align-items-center">
+        <div className="banner_text_wrapper">
+          <h1 className="text-light">Let's see the world together !</h1>
+          <h3 className="text-light">keep the world in your hand.</h3>
+          <p className="text-light">
+            Best places for your next travel are here check them out.
+          </p>
+          <button className="btn text-uppercase fw-bold btn-danger mt-3">
+            See availabe tour
+          </button>
+        </div>
       </div>
       {/* end of {/* banner text info */}
       <div className="video_banner_container">
@@ -20,7 +26,7 @@ const Banner = () => {
           data-bs-ride="carousel"
         >
           {/* <!-- Indicators --> */}
-          <div className="carousel-indicators">
+          {/* <div className="carousel-indicators">
             <button
               type="button"
               data-bs-target="#carouselVideoExample"
@@ -41,7 +47,7 @@ const Banner = () => {
               data-bs-slide-to="2"
               aria-label="Slide 3"
             ></button>
-          </div>
+          </div> */}
 
           {/* <!-- Inner --> */}
           <div className="carousel-inner">
