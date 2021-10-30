@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+import { Redirect } from "react-router";
 
 initializeFirebaseAuth();
 const useFirebaseAuth = () => {
@@ -14,40 +15,37 @@ const useFirebaseAuth = () => {
   const [error, setError] = useState("");
   const [userLoading, setUserLoading] = useState(true);
 
-  console.log(user);
+  console.log(user, user?.uid);
   const auth = getAuth();
 
   const signInWithGoogle = () => {
     const googleProvider = new GoogleAuthProvider();
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        setUser(result.user);
-      })
-      .catch((err) => {
-        setError(err.message);
-      })
-      .finally(() => {
-        setUserLoading(false);
-      });
+    return signInWithPopup(auth, googleProvider);
+    // .then((result) => {
+    //   setUser(result.user);
+    // })
+    // .catch((err) => {
+    //   setError(err.message);
+    // })
+    // .finally(() => {
+    //   setUserLoading(false);
+    // });
   };
 
   const logOut = () => {
-    signOut(auth)
-      .then(() => {
-        setUser(null);
-      })
-      .catch((err) => {
-        setError("There was something wrong, please try again later.");
-      });
+    setUserLoading(true);
+    signOut(auth).then(() => {
+      setUser(null);
+      setUserLoading(false);
+    });
   };
 
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-      } else {
-        setUser(null);
       }
+
       setUserLoading(false);
       return () => unsubscribed;
     });

@@ -49,11 +49,11 @@ const Footer = () => {
                   <VscArrowSmallRight className="me-1 custom_icon" />
                   Home
                 </Link>
-                <Link className="nav-link ps-0 text-white" to="about-us">
+                <Link className="nav-link ps-0 text-white" to="/about-us">
                   <VscArrowSmallRight className="me-1 custom_icon" />
                   About us
                 </Link>
-                <Link className="nav-link ps-0 text-white" to="tours">
+                <Link className="nav-link ps-0 text-white" to="/tours">
                   <VscArrowSmallRight className="me-1 custom_icon" />
                   Tours
                 </Link>
@@ -72,15 +72,15 @@ const Footer = () => {
               </p>
             </div>
             <section className="social_icons_wrapper mt-4">
-              <a to="https://www.facebook.com/t" className="">
+              <Link to="https://www.facebook.com/t" className="">
                 <BsFacebook className="mx-2 custom_icon"></BsFacebook>
-              </a>
-              <a to="https://www.instagram.com">
+              </Link>
+              <Link to="https://www.instagram.com">
                 <BsInstagram className="mx-2 custom_icon"></BsInstagram>
-              </a>
-              <a to="https://twitter.com/">
+              </Link>
+              <Link to="https://twitter.com/">
                 <BsTwitter className="mx-2 custom_icon"></BsTwitter>
-              </a>
+              </Link>
             </section>
           </section>
         </div>

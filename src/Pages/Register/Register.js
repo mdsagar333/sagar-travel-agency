@@ -1,12 +1,18 @@
 import React from "react";
 import "./Register.css";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useContextAPI from "../../Hooks/useContextAPI";
 
 function Register() {
   const { user, signInWithGoogle } = useContextAPI();
-  console.log(user);
+  const history = useHistory();
+
+  const handleRegisterWithGoogle = () => {
+    signInWithGoogle().then((result) => {
+      history.push("/");
+    });
+  };
   return (
     <div className="container mt-5">
       <div className="row">
@@ -17,7 +23,7 @@ function Register() {
               <h1 className="text-center mt-3 mb-5">Register with</h1>
               <button
                 className="btn btn-outline-primary text-capitalize w-100 rounded-pill position-relative p-2"
-                onClick={signInWithGoogle}
+                onClick={handleRegisterWithGoogle}
               >
                 <span className="custom_icon_container">
                   <FcGoogle className="custom_icon_google" />

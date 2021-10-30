@@ -9,8 +9,18 @@ import Register from "./Pages/Register/Register";
 import AllTour from "./Pages/AllTour/AllTour";
 import Login from "./Pages/Login/Login";
 import TourDetails from "./Pages/SingleTourDetails/TourDetails";
+import useContextAPI from "./Hooks/useContextAPI";
+import LoadingSpinner from "./Pages/SharedComponent/Spinner/LoadingSpinner";
+import PrivateRoute from "./Pages/SharedComponent/PrivateRoute/PrivateRoute";
+import MyOrders from "./Pages/MyOrders.js/MyOrders";
+import AllOrder from "./Pages/AllOrder/AllOrder";
+import CreateTour from "./Pages/CreateTour/CreateTour";
 
 function App() {
+  const { userLoading } = useContextAPI();
+  if (userLoading) {
+    return <LoadingSpinner />;
+  }
   return (
     <div>
       <Router>
@@ -25,18 +35,27 @@ function App() {
           <Route path="/about-us">
             <About></About>
           </Route>
-          <Route exact path="/tour">
+          <Route exact path="/tours">
             <AllTour />
           </Route>
-          <Route path="/tour/:tourId">
+          <PrivateRoute path="/tour/:tourId">
             <TourDetails></TourDetails>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login></Login>
           </Route>
           <Route path="/register">
             <Register></Register>
           </Route>
+          <PrivateRoute path="/my-orders">
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/manage-all-orders">
+            <AllOrder></AllOrder>
+          </PrivateRoute>
+          <PrivateRoute path="/create-tour">
+            <CreateTour></CreateTour>
+          </PrivateRoute>
         </Switch>
         <Footer />
       </Router>

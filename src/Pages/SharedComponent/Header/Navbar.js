@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/image/logo_travel_.png";
+import useContextAPI from "../../../Hooks/useContextAPI";
 
 const Navbar = () => {
+  const { user, logOut } = useContextAPI();
+
   return (
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light ">
@@ -33,7 +36,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fw-bold active" to="about-us">
+                <Link className="nav-link fw-bold active" to="/about-us">
                   About us
                 </Link>
               </li>
@@ -42,14 +45,45 @@ const Navbar = () => {
                   Tours
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link fw-bold active btn-danger text-light px-3 rounded-pill"
-                  to="/login"
-                >
-                  Login Or Register
-                </Link>
-              </li>
+              {user ? (
+                <div className="d-flex flex-column flex-lg-row">
+                  <li className="nav-item">
+                    <Link className="nav-link fw-bold active" to="/my-orders">
+                      My Orders
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link fw-bold active"
+                      to="/manage-all-orders"
+                    >
+                      Manage All Orders
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link fw-bold active" to="/create-tour">
+                      Add A New Service
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      className="nav-link fw-bold active btn-secondary text-light border-rounded border text-center"
+                      onClick={logOut}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </div>
+              ) : (
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-bold active btn-danger text-light px-3 rounded-pill"
+                    to="/login"
+                  >
+                    Login Or Register
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
