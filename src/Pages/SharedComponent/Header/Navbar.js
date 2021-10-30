@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../../assets/image/logo_travel_.png";
 
 const Navbar = () => {
@@ -6,9 +7,9 @@ const Navbar = () => {
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <img src={logo} alt="logo" className="custom_logo" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,31 +24,31 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link fw-bold active"
                   aria-current="page"
-                  href="#"
+                  to="/home"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link fw-bold active" href="#">
+                <Link className="nav-link fw-bold active" to="about-us">
                   About us
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link fw-bold active" href="#">
+                <Link className="nav-link fw-bold active" to="/tours">
                   Tours
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link fw-bold active btn-danger text-light px-3 rounded-pill"
-                  href="#"
+                  to="/login"
                 >
-                  Register
-                </a>
+                  Login Or Register
+                </Link>
               </li>
             </ul>
           </div>

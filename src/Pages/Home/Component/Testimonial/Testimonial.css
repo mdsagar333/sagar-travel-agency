@@ -34,4 +34,14 @@
 
 .custom_slider_p {
   background-color: rgba(0, 0, 0, 0.6);
+  height: 180px;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 83%,
+    66% 83%,
+    65% 100%,
+    59% 83%,
+    0 84%
+  );
 }

@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import useContextAPI from "./Hooks/useContextAPI";
+import AllContextAPI from "./context/allContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <useContextAPI>
+    <AllContextAPI>
       <App />
-    </useContextAPI>
+    </AllContextAPI>
   </React.StrictMode>,
   document.getElementById("root")
 );

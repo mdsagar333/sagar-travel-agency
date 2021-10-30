@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   BsFacebook,
   BsInstagram,
@@ -15,9 +16,9 @@ const Footer = () => {
       <div className="container text-light">
         <div className="row g-3 my-2">
           <section className="col-12 col-md-6 col-lg-2 mb-3 d-flex justify-content-start">
-            <a href="">
+            <Link to="/">
               <img src={logoFooter} alt="logo footer" className="custom_logo" />
-            </a>
+            </Link>
           </section>
           <section className="col-12 col-md-6 col-lg-4 mb-3">
             <h5 className="text-uppercase mb-3">address and contact info</h5>
@@ -40,26 +41,26 @@ const Footer = () => {
             <h5 className="text-uppercase mb-3">support and help</h5>
             <div className="footer_nav">
               <nav className="nav flex-column">
-                <a
+                <Link
                   className="nav-link ps-0 text-white"
                   aria-current="page"
-                  href="#"
+                  to="/home"
                 >
                   <VscArrowSmallRight className="me-1 custom_icon" />
                   Home
-                </a>
-                <a className="nav-link ps-0 text-white" href="#">
+                </Link>
+                <Link className="nav-link ps-0 text-white" to="about-us">
                   <VscArrowSmallRight className="me-1 custom_icon" />
                   About us
-                </a>
-                <a className="nav-link ps-0 text-white" href="#">
+                </Link>
+                <Link className="nav-link ps-0 text-white" to="tours">
                   <VscArrowSmallRight className="me-1 custom_icon" />
                   Tours
-                </a>
-                <a className="nav-link ps-0 text-white" href="#">
+                </Link>
+                <Link className="nav-link ps-0 text-white" to="/">
                   <VscArrowSmallRight className="me-1 custom_icon" />
                   Blogs
-                </a>
+                </Link>
               </nav>
             </div>
           </section>
@@ -69,18 +70,18 @@ const Footer = () => {
               <p className="text-capitalize">
                 join our social media and explore all the amazing places
               </p>
-              <section className="social_icons_wrapper mt-4">
-                <a href="https://www.facebook.com/t" className="">
-                  <BsFacebook className="mx-2 custom_icon"></BsFacebook>
-                </a>
-                <a href="https://www.instagram.com">
-                  <BsInstagram className="mx-2 custom_icon"></BsInstagram>
-                </a>
-                <a href="https://twitter.com/">
-                  <BsTwitter className="mx-2 custom_icon"></BsTwitter>
-                </a>
-              </section>
             </div>
+            <section className="social_icons_wrapper mt-4">
+              <a to="https://www.facebook.com/t" className="">
+                <BsFacebook className="mx-2 custom_icon"></BsFacebook>
+              </a>
+              <a to="https://www.instagram.com">
+                <BsInstagram className="mx-2 custom_icon"></BsInstagram>
+              </a>
+              <a to="https://twitter.com/">
+                <BsTwitter className="mx-2 custom_icon"></BsTwitter>
+              </a>
+            </section>
           </section>
         </div>
       </div>

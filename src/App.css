@@ -23,3 +23,18 @@ a:hover > .custom_icon {
   max-width: 80%;
   object-fit: contain;
 }
+
+.custom_letter_spacing {
+  letter-spacing: 1.5px;
+  word-spacing: 3px;
+}
+
+.custom_price {
+  font-size: 25px;
+  font-weight: 700;
+  margin-left: 7px;
+}
+
+.detail_img {
+  max-height: 550px;
+}

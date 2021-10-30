@@ -1,0 +1,10 @@
+.login_container {
+  max-width: 435px;
+}
+
+.custom_icon_google {
+  font-size: 35px;
+  position: absolute;
+  left: 5px;
+  bottom: 1px;
+}
