@@ -25,28 +25,28 @@ const Order = (props) => {
       {bookedTour.length > 0 && (
         <div className="container">
           <div className="row mb-2 bg-primary text-light p-2">
-            <div className="col-2">No.</div>
-            <div className="col-3">Booked Tour</div>
-            <div className="col-2">Price</div>
-            <div className="col-3">Date</div>
-            <div className="col-2">Action</div>
+            <div className="col-2 custom_font_size">No.</div>
+            <div className="col-3 custom_font_size">Booked Tour</div>
+            <div className="col-2 custom_font_size">Price</div>
+            <div className="col-3 custom_font_size">Date</div>
+            <div className="col-2 custom_font_size">Action</div>
           </div>
           {bookedTour.map((tour, index) => (
             <Slide duration={1200} delay={index * 200} left>
               <div className="row fw-bold custom_order border mb-2">
-                <div className="col-2 text-start py-1 d-flex align-items-center">
+                <div className="col-2 text-start py-1 d-flex align-items-center custom_font_size">
                   {index + 1}
                 </div>
-                <div className="col-4 text-center text-capitalize  py-1  d-flex align-items-center">
+                <div className="col-4 text-center text-capitalize  py-1  d-flex align-items-center custom_font_size">
                   {tour.tourName}
                 </div>
-                <div className="col-2 text-center text-capitalize  py-1  d-flex align-items-center">
+                <div className="col-2 text-center text-capitalize  py-1  d-flex align-items-center custom_font_size">
                   $ {tour.tourPrice}
                 </div>
-                <div className="col-2 text-center text-capitalize  py-1  d-flex align-items-center">
+                <div className="col-2 text-center text-capitalize  py-1  d-flex align-items-center custom_font_size">
                   {tour.date}
                 </div>
-                <div className="col-2 text-end text-capitalize  py-1  d-flex align-items-center">
+                <div className="col-2 text-end text-capitalize  py-1  d-flex align-items-center custom_font_size">
                   <button
                     className="btn d-flex align-items-center"
                     onClick={() => handleModal(tour._id)}

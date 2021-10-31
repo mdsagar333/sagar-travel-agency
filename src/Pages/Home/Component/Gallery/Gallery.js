@@ -86,7 +86,7 @@ const Gallery = () => {
               <Zoom duration={1500}>
                 <div className="modal_content p-3 mt-3 custom_modal_content">
                   <img src={imgSrc} alt="" className="custom_gallery_img" />
-                  <div className="d-flex justify-content-end">
+                  <div className="">
                     <div className="modal_btn_container">
                       <button
                         className="custom_btn btn"

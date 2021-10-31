@@ -68,6 +68,9 @@ a:hover > .custom_icon {
 
 .custom_modal_content {
   position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .custom_gallery_img {
@@ -92,4 +95,12 @@ a:hover > .custom_icon {
 
 .custom_tour_card:hover .custom_card_img {
   transform: scale(1.1);
+}
+
+.custom_font_size {
+  font-size: 13;
+}
+
+.custom_font_size_2 {
+  font-size: 15;
 }

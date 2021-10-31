@@ -70,7 +70,7 @@ const Navbar = () => {
                       {user.displayName || user.email}
                     </span>
                     <button
-                      className="nav-link fw-bold active btn-secondary text-light border-rounded border text-center"
+                      className="nav-link fw-bold active btn-secondary text-light border-rounded border text-center p-2"
                       onClick={logOut}
                     >
                       Logout

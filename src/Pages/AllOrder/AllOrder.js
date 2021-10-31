@@ -74,12 +74,18 @@ const AllOrder = () => {
         </Flash>
       )}
       <div className="row mb-3 bg-primary text-light p-2">
-        <div className="col-1 small">No.</div>
-        <div className="col-2 text-center small">Booked By</div>
-        <div className="col-3 text-center small">Booked Tour</div>
-        <div className="col-1 small">Tour Price</div>
-        <div className="col-1 small">Status</div>
-        <div className="col-2 small text-end">Actions</div>
+        <div className="col-1 small custom_font_size">No.</div>
+        <div className="col-2 text-center small custom_font_size">
+          Booked By
+        </div>
+        <div className="col-3 text-center small custom_font_size">
+          Booked Tour
+        </div>
+        <div className="col-1 small custom_font_size">Tour Price</div>
+        <div className="col-1 small custom_font_size">Status</div>
+        <div className="col-2 small text-end custom_font_size ms-auto custom_font_size">
+          Actions
+        </div>
       </div>
       {allOrdersLoading ? (
         <LoadingSpinner></LoadingSpinner>

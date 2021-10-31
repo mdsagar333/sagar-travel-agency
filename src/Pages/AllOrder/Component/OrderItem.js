@@ -38,28 +38,36 @@ const OrderItem = (props) => {
     <>
       <Slide duration={1200} delay={index * 200} left>
         <div className="row py-2 mb-2 custom_order border border-bottom">
-          <div className="col-1 text-uppercase fw-bold small">{index + 1}</div>
-          <div className="col-3 text-uppercase fw-bold small">{name}</div>
-          <div className="col-2 text-uppercase fw-bold small">{tourName}</div>
-          <div className="col-1 text-uppercase fw-bold small">${tourPrice}</div>
+          <div className="col-1 text-uppercase  small custom_font_size">
+            {index + 1}
+          </div>
+          <div className="col-3 text-uppercase  small custom_font_size">
+            {name}
+          </div>
+          <div className="col-2 text-uppercase  small custom_font_size">
+            {tourName}
+          </div>
+          <div className="col-1 text-uppercase  small custom_font_size">
+            ${tourPrice}
+          </div>
           <div
-            className={`col-2 text-uppercase fw-bold small d-inline-block badge text-${
+            className={`col-2 text-uppercase  small d-inline-block custom_font_size text-${
               statusPending ? "danger" : "success"
             }`}
           >
             {statusPending ? "Pending" : "Approved"}
           </div>
-          <div className="col-2 text-uppercase fw-bold">
+          <div className="col-2 text-uppercase  custom_font_size">
             <div>
               {" "}
               <button
-                className="btn btn-outline-primary me-1"
+                className="btn btn-outline-primary me-1 custom_font_size"
                 onClick={() => handleModal(_id, "update")}
               >
                 confirm
               </button>
               <button
-                className="btn btn-outline-danger"
+                className="btn btn-outline-danger custom_font_size"
                 onClick={() => handleModal(_id, "delete")}
               >
                 Delete

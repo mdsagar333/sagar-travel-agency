@@ -8,12 +8,19 @@ const Banner = () => {
       {/* banner text info */}
       <div className="banner_text_info_container p-4 d-flex justify-content-center align-items-center">
         <div className="banner_text_wrapper">
-          <h1 className="text-light">Let's see the world together !</h1>
-          <h3 className="text-light">keep the world in your hand.</h3>
-          <p className="text-light">
+          <h1 className="text-light mb-1 mb-md-3">
+            Let's see the world together !
+          </h1>
+          <h3 className="text-light mb-1 mb-md-4">
+            keep the world in your hand.
+          </h3>
+          <p className="text-light mb-0 mb-md-5">
             Best places for your next travel are here check them out.
           </p>
-          <Link className="btn text-uppercase fw-bold btn-danger mt-3">
+          <Link
+            className="btn text-uppercase fw-bold btn-danger mt-0 mt-md-4"
+            to="/tours"
+          >
             See availabe tour
           </Link>
         </div>
@@ -26,30 +33,6 @@ const Banner = () => {
           className="carousel slide carousel-fade"
           data-bs-ride="carousel"
         >
-          {/* <!-- Indicators --> */}
-          {/* <div className="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselVideoExample"
-              data-bs-slide-to="0"
-              className="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselVideoExample"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselVideoExample"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div> */}
-
           {/* <!-- Inner --> */}
           <div className="carousel-inner">
             {/* <!-- Single item --> */}
