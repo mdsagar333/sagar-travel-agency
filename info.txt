@@ -1,0 +1,6 @@
+
+Route: https://sagar-travel-authentication.web.app/admin
+
+Credentials:
+email: admin@sagartravel.com
+password: admin12345

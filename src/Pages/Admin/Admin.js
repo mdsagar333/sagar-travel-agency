@@ -76,6 +76,3 @@ const Admin = () => {
 };
 
 export default Admin;
-
-// admin@sagartravel.com
-// admin12345
