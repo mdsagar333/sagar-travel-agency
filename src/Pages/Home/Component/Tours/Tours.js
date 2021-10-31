@@ -10,7 +10,7 @@ const Tours = () => {
     <LoadingSpinner></LoadingSpinner>;
   }
   return (
-    <div className="container mb-4">
+    <div className="container mb-5">
       <Slide duration={1500} left>
         <h1 className="text-center mb-4 text-uppercase">Our tours</h1>
       </Slide>
