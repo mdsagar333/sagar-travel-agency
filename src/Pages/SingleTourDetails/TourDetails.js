@@ -15,11 +15,12 @@ const TourDetails = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userUid, setUserUid] = useState(null);
   const [tourID, settourID] = useState("");
-  const [bookingError, setBookingError] = useState("");
+  const [bookingMessage, setbookingMessage] = useState("");
 
   // reference for address and phone input value
   const addressRef = useRef(null);
   const phoneRef = useRef(null);
+  const dateRef = useRef(null);
 
   // using useEffect for setting user name, email and Uid from currently logged-in user
   useEffect(() => {
@@ -40,10 +41,12 @@ const TourDetails = () => {
 
   const handleBookingTour = (e) => {
     e.preventDefault();
-    setBookingError("");
+    setbookingMessage("");
     const phoneNumber = phoneRef.current.value;
     const address = addressRef.current.value;
-
+    const orderDate = new Date();
+    const date = `${orderDate.getFullYear()}-${orderDate.getMonth()}-${orderDate.getDate()}`;
+    // console.log(orderDate);
     // creating user-data object
     const userData = {
       phoneNumber,
@@ -52,16 +55,17 @@ const TourDetails = () => {
       userEmail,
       userUid,
       tourID,
+      date,
     };
     // validating email
     if (!validateEmail(userEmail)) {
-      setBookingError("Pleaes enter a valid email!");
+      setbookingMessage("Pleaes enter a valid email!");
       return;
     }
 
     // checking for 11 digit which is standar phone number in bd
     if (phoneNumber.toString().length !== 11) {
-      setBookingError(
+      setbookingMessage(
         "Please enter a valid phone number! Phone number must be 11 digit long."
       );
       return;
@@ -78,6 +82,10 @@ const TourDetails = () => {
       })
       .then((response) => {
         console.log(response);
+        setbookingMessage(response.data.message);
+        setUserEmail("");
+        addressRef.current.value = "";
+        phoneRef.current.value = "";
       });
   };
 
@@ -96,6 +104,7 @@ const TourDetails = () => {
       price,
       description,
       maxGroupSize,
+      date,
     } = tour;
   }
 
@@ -163,7 +172,7 @@ const TourDetails = () => {
                       <span className="custom_price">${price}</span>
                     </p>
                     <p className="mb-0">Date</p>
-                    <h6 className="mb-5">Dec 10/2021</h6>
+                    <h6 className="mb-5">{date}</h6>
                   </div>
                 </div>
               </div>
@@ -218,6 +227,7 @@ const TourDetails = () => {
                       ref={addressRef}
                     />
                   </div>
+
                   <div className="mb-3">
                     <label htmlFor="exampleInputPhone" className="form-label">
                       Phone
@@ -230,10 +240,10 @@ const TourDetails = () => {
                       ref={phoneRef}
                     />
                   </div>
-                  {bookingError.length > 0 && (
+                  {bookingMessage.length > 0 && (
                     <p className="text-danger fw-bold small">
                       {" "}
-                      {bookingError}{" "}
+                      {bookingMessage}{" "}
                     </p>
                   )}
                   <button

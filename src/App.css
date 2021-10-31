@@ -38,3 +38,15 @@ a:hover > .custom_icon {
 .detail_img {
   max-height: 550px;
 }
+
+.custom_order {
+  background-color: transparent;
+  transition: all 0.6;
+}
+.custom_order:hover {
+  background-color: #ccc;
+}
+
+.custome_order_icon {
+  font-size: 30px;
+}

@@ -15,7 +15,7 @@ const AllContextAPI = ({ children }) => {
     const fetchData = async () => {
       const result = await axios("http://localhost:5000/api/tours");
       const { status, data } = result;
-      console.log(data.data.tours);
+      console.log(data);
       if (status === 200) {
         setTours(data.data.tours);
       } else {
