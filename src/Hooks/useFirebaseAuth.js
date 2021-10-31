@@ -6,17 +6,18 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { Redirect } from "react-router";
 
 initializeFirebaseAuth();
+const auth = getAuth();
+
 const useFirebaseAuth = () => {
   const [user, setUser] = useState(null);
-  const [error, setError] = useState("");
+  const [errorAuth, setErrorAuth] = useState("");
   const [userLoading, setUserLoading] = useState(true);
-
-  console.log(user, user?.uid);
-  const auth = getAuth();
 
   const signInWithGoogle = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -30,6 +31,14 @@ const useFirebaseAuth = () => {
     // .finally(() => {
     //   setUserLoading(false);
     // });
+  };
+
+  const adminSignIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+  const adminSignUp = (email, password) => {
+    console.log(email, password);
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
@@ -52,10 +61,12 @@ const useFirebaseAuth = () => {
   }, []);
   return {
     user,
-    error,
+    errorAuth,
     userLoading,
     signInWithGoogle,
     logOut,
+    adminSignUp,
+    adminSignIn,
   };
 };
 

@@ -11,12 +11,12 @@ body {
 
 .custom_icon {
   font-size: 2rem;
-  color: #dc3545;
+  color: #0d6efd;
   transition: all 0.5s;
 }
 
 a:hover > .custom_icon {
-  color: #dd051b;
+  color: #0b5ed7;
 }
 
 .custom_img {
@@ -49,4 +49,36 @@ a:hover > .custom_icon {
 
 .custome_order_icon {
   font-size: 30px;
+}
+
+.custom_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+}
+
+.modal_content {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.custom_modal_content {
+  position: relative;
+}
+
+.custom_gallery_img {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.custom_btn {
+  position: absolute;
+  top: -30px;
+  right: -50px;
+  font-size: 35px;
+  color: #fff;
 }

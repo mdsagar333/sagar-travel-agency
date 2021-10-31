@@ -8,8 +8,15 @@ const AllContextAPI = ({ children }) => {
   const [dataLoading, setDataloading] = useState(true);
   const [dataError, setDataError] = useState("");
   const [tours, setTours] = useState([]);
-  const { user, error, userLoading, signInWithGoogle, logOut } =
-    useFirebaseAuth();
+  const {
+    user,
+    errorAuth,
+    userLoading,
+    signInWithGoogle,
+    logOut,
+    adminSignUp,
+    adminSignIn,
+  } = useFirebaseAuth();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,10 +41,12 @@ const AllContextAPI = ({ children }) => {
         dataLoading,
         dataError,
         user,
-        error,
+        errorAuth,
         userLoading,
         signInWithGoogle,
         logOut,
+        adminSignUp,
+        adminSignIn,
       }}
     >
       {children}

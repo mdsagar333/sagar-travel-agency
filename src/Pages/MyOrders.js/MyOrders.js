@@ -10,6 +10,7 @@ const MyOrders = () => {
   const [orderLoading, setOrderLoading] = useState(true);
   const [orders, setOrders] = useState([]);
 
+  console.log(user.uid);
   const deleteABookedTour = (orderID) => {
     console.log(orderID);
     const url = `http://localhost:5000/api/order/${orderID}`;
@@ -38,26 +39,13 @@ const MyOrders = () => {
               (tour) => tour._id === order.tourID
             );
             if (indexOfTour > -1) {
-              const { name, price } = tours[indexOfTour];
-              return { ...order, tourName: name, tourPrice: price };
+              const { name, price, date } = tours[indexOfTour];
+              return { ...order, tourName: name, tourPrice: price, date };
             }
           });
           console.log(populatedBookedTours, "populated");
           setOrders(populatedBookedTours);
         }
-        // if (
-        //   result.data.data.userData &&
-        //   result.data.data.userData.tourIDs.length > 0
-        // ) {
-        //   const tourIDs = [...result.data.data.userData.tourIDs];
-        //   const filteredTours = tours.filter((tour) => {
-        //     if (tourIDs.includes(tour._id)) {
-        //       return tour;
-        //     }
-        //   });
-        //   console.log(filteredTours);
-        //   setOrders(filteredTours);
-        // }
 
         setOrderLoading(false);
       } catch (err) {

@@ -62,10 +62,13 @@ const Navbar = () => {
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link fw-bold active" to="/create-tour">
-                      Add A New Service
+                      Add New Tour
                     </Link>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item d-flex align-items-center">
+                    <span className="me-2 fw-bold text-info">
+                      {user.displayName || user.email}
+                    </span>
                     <button
                       className="nav-link fw-bold active btn-secondary text-light border-rounded border text-center"
                       onClick={logOut}

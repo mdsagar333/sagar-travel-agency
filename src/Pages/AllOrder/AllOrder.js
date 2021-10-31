@@ -3,22 +3,47 @@ import axios from "axios";
 import LoadingSpinner from "../SharedComponent/Spinner/LoadingSpinner";
 import useContextAPI from "../../Hooks/useContextAPI";
 import OrderItem from "./Component/OrderItem";
-import axios from "axios";
+import Flash from "react-reveal/Flash";
+
 const AllOrder = () => {
-  const { tours, dataLoading } = useContextAPI();
+  const { tours, dataLoading, user } = useContextAPI();
   const [allOrders, setAllOrders] = useState([]);
   const [allOrdersLoading, setAllOrdersLoading] = useState(true);
-  const [updateObserver, setUpdateObserver] = useState();
+  const [updateObserver, setUpdateObserver] = useState(1);
+  const [actionsError, setActionsError] = useState("");
 
   const handleUpdate = (id) => {
-    const url = `http://localhost:5000/api/order/${id}`;
-    console.log(url);
+    setActionsError("");
+    const url = `http://localhost:5000/api/order/${id}/${user.uid}`;
     const updateOrder = async () => {
-      const result = await axios.patch("");
+      console.log("inside patch");
+      const result = await axios.patch(url);
+      console.log(result);
+      if (result.data?.status === "fail") {
+        setActionsError("You are not authorised to perform this action.");
+      } else {
+        setUpdateObserver(updateObserver + 1);
+      }
     };
+    updateOrder();
   };
 
-  console.log(allOrders);
+  const handleDelete = (id) => {
+    setActionsError("");
+    const url = `http://localhost:5000/api/order/${id}/${user.uid}`;
+    const deleteOrder = async () => {
+      const result = await axios.delete(url);
+      console.log(result);
+      if (result.data?.status === "fail") {
+        setActionsError("You are not authorised to perform this action.");
+      } else {
+        setUpdateObserver(updateObserver + 1);
+      }
+    };
+
+    deleteOrder();
+  };
+
   useEffect(() => {
     const fetchAllOrders = async () => {
       setAllOrdersLoading(true);
@@ -38,10 +63,15 @@ const AllOrder = () => {
     };
 
     fetchAllOrders();
-  }, []);
+  }, [updateObserver]);
   return (
     <div className="container my-5">
-      <div className="row mb-3">
+      {actionsError.length > 0 && (
+        <Flash forever={true} duration={1200}>
+          <p className="text-danger fw-bold text-center">{actionsError} </p>
+        </Flash>
+      )}
+      <div className="row mb-3 bg-primary text-light p-2">
         <div className="col-1 small">No.</div>
         <div className="col-2 text-center small">Booked By</div>
         <div className="col-3 text-center small">Booked Tour</div>
@@ -53,7 +83,13 @@ const AllOrder = () => {
         <LoadingSpinner></LoadingSpinner>
       ) : allOrders.length > 0 ? (
         allOrders.map((order, index) => (
-          <OrderItem key={order._id} {...order} index={index} />
+          <OrderItem
+            key={order._id}
+            {...order}
+            handleUpdate={handleUpdate}
+            handleDelete={handleDelete}
+            index={index}
+          />
         ))
       ) : (
         <div></div>

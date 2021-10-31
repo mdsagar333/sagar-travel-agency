@@ -15,6 +15,8 @@ import PrivateRoute from "./Pages/SharedComponent/PrivateRoute/PrivateRoute";
 import MyOrders from "./Pages/MyOrders.js/MyOrders";
 import AllOrder from "./Pages/AllOrder/AllOrder";
 import CreateTour from "./Pages/CreateTour/CreateTour";
+import Admin from "./Pages/Admin/Admin";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   const { userLoading } = useContextAPI();
@@ -56,6 +58,12 @@ function App() {
           <PrivateRoute path="/create-tour">
             <CreateTour></CreateTour>
           </PrivateRoute>
+          <Route path="/admin">
+            <Admin></Admin>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
         <Footer />
       </Router>

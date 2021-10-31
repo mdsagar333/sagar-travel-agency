@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import "./Order.css";
 import { AiFillDelete } from "react-icons/ai";
-
+import Slide from "react-reveal/Slide";
 const Order = (props) => {
   const { bookedTour, deleteABookedTour } = props;
   const [showModal, setShowModal] = useState(false);
   const [deletedTourID, setDeletedTourID] = useState("");
-  console.log(bookedTour);
 
   const handleModal = (id) => {
     setShowModal(true);
@@ -23,31 +21,41 @@ const Order = (props) => {
   };
   return (
     <div>
+      <h1 className="text-center mb-5 text-capitalize">My booked tours</h1>
       {bookedTour.length > 0 && (
-        <div>
+        <div className="container">
+          <div className="row mb-2 bg-primary text-light p-2">
+            <div className="col-2">No.</div>
+            <div className="col-3">Booked Tour</div>
+            <div className="col-2">Price</div>
+            <div className="col-3">Date</div>
+            <div className="col-2">Action</div>
+          </div>
           {bookedTour.map((tour, index) => (
-            <div className="row fw-bold custom_order">
-              <div className="col-2 text-start border-0 py-1 border-bottom d-flex align-items-center">
-                {index + 1}
+            <Slide duration={1200} delay={index * 200} left>
+              <div className="row fw-bold custom_order border mb-2">
+                <div className="col-2 text-start py-1 d-flex align-items-center">
+                  {index + 1}
+                </div>
+                <div className="col-4 text-center text-capitalize  py-1  d-flex align-items-center">
+                  {tour.tourName}
+                </div>
+                <div className="col-2 text-center text-capitalize  py-1  d-flex align-items-center">
+                  $ {tour.tourPrice}
+                </div>
+                <div className="col-2 text-center text-capitalize  py-1  d-flex align-items-center">
+                  {tour.date}
+                </div>
+                <div className="col-2 text-end text-capitalize  py-1  d-flex align-items-center">
+                  <button
+                    className="btn d-flex align-items-center"
+                    onClick={() => handleModal(tour._id)}
+                  >
+                    <AiFillDelete className="text-danger custome_order_icon" />
+                  </button>
+                </div>
               </div>
-              <div className="col-4 text-center text-capitalize border-0 py-1 border-bottom d-flex align-items-center">
-                {tour.tourName}
-              </div>
-              <div className="col-2 text-center text-capitalize border-0 py-1 border-bottom d-flex align-items-center">
-                $ {tour.tourPrice}
-              </div>
-              <div className="col-2 text-center text-capitalize border-0 py-1 border-bottom d-flex align-items-center">
-                {tour.date}
-              </div>
-              <div className="col-2 text-end text-capitalize border-0 py-1 border-bottom d-flex align-items-center">
-                <button
-                  className="btn d-flex align-items-center"
-                  onClick={() => handleModal(tour._id)}
-                >
-                  <AiFillDelete className="text-danger custome_order_icon" />
-                </button>
-              </div>
-            </div>
+            </Slide>
           ))}
           {/* modal */}
           <div className={`${showModal ? "d-block" : "d-none"} custom_modal`}>
