@@ -172,7 +172,7 @@ const TourDetails = () => {
                       <span className="custom_price">${price}</span>
                     </p>
                     <p className="mb-0">Date</p>
-                    <h6 className="mb-5">{date}</h6>
+                    <h6 className="mb-5">{date || "Soon"}</h6>
                   </div>
                 </div>
               </div>

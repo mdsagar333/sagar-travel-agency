@@ -14,9 +14,13 @@ const CreateTour = () => {
   const durationRef = useRef();
   const descriptionRef = useRef();
   const imageRef = useRef();
+  const dateRef = useRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setTourNotification("");
+    const newDate = new Date(dateRef.current.value);
+    const date = `${newDate.getFullYear()}`;
     const tourData = {
       name: nameRef.current.value,
       price: priceRef.current.value,
@@ -25,8 +29,9 @@ const CreateTour = () => {
       duration: durationRef.current.value,
       description: descriptionRef.current.value,
       images: imageRef.current.value,
+      date,
     };
-    console.log(tourData);
+
     const createTour = async () => {
       const result = await axios.post(
         `https://dark-phantom-53445.herokuapp.com/api/tours/${user.uid}`,
@@ -106,6 +111,18 @@ const CreateTour = () => {
                   className="form-control"
                   id="exampleInputPhone"
                   ref={countryRef}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleInputDate" className="form-label">
+                  Date
+                </label>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="exampleInputDate"
+                  ref={dateRef}
                   required
                 />
               </div>

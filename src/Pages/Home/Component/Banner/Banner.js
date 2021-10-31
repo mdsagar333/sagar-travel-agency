@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Banner.css";
 
 const Banner = () => {
@@ -12,9 +13,9 @@ const Banner = () => {
           <p className="text-light">
             Best places for your next travel are here check them out.
           </p>
-          <button className="btn text-uppercase fw-bold btn-danger mt-3">
+          <Link className="btn text-uppercase fw-bold btn-danger mt-3">
             See availabe tour
-          </button>
+          </Link>
         </div>
       </div>
       {/* end of {/* banner text info */}
