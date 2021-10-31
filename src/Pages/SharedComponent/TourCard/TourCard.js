@@ -24,7 +24,7 @@ const TourCard = ({
           <div className="card-body">
             <h5 className="card-title text-uppercase me-auto mb-4 d-flex justify-content-between">
               <span>{name}</span>
-              <span className="badge bg-info text-light">${price}</span>
+              <span className="badge bg-warning text-light">${price}</span>
             </h5>
             <p className="card-text text-justify custom_letter_spacing">
               {description.substr(0, 120)}...
