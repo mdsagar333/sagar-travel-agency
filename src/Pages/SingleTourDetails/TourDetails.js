@@ -72,7 +72,7 @@ const TourDetails = () => {
     }
     console.log(phoneNumber, address, userName, userEmail, userUid, tourID);
     axios
-      .post("http://localhost:5000/api/order", {
+      .post("https://dark-phantom-53445.herokuapp.com/api/order", {
         phoneNumber,
         address,
         userName,

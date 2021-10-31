@@ -13,7 +13,7 @@ const MyOrders = () => {
   console.log(user.uid);
   const deleteABookedTour = (orderID) => {
     console.log(orderID);
-    const url = `http://localhost:5000/api/order/${orderID}`;
+    const url = `https://dark-phantom-53445.herokuapp.com/api/order/${orderID}`;
     const confirmDelete = async () => {
       const result = await axios.delete(url);
       if (result.status === 204) {
@@ -27,7 +27,7 @@ const MyOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const url = `http://localhost:5000/api/order/${user.uid}`;
+        const url = `https://dark-phantom-53445.herokuapp.com/api/order/${user.uid}`;
 
         const result = await axios(url);
         console.log(result);

@@ -20,7 +20,9 @@ const AllContextAPI = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://localhost:5000/api/tours");
+      const result = await axios(
+        "https://dark-phantom-53445.herokuapp.com/api/tours"
+      );
       const { status, data } = result;
       console.log(data);
       if (status === 200) {

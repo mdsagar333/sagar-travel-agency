@@ -29,7 +29,7 @@ const CreateTour = () => {
     console.log(tourData);
     const createTour = async () => {
       const result = await axios.post(
-        `http://localhost:5000/api/tours/${user.uid}`,
+        `https://dark-phantom-53445.herokuapp.com/api/tours/${user.uid}`,
         {
           ...tourData,
         }

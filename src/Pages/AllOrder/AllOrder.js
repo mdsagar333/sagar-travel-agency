@@ -14,7 +14,7 @@ const AllOrder = () => {
 
   const handleUpdate = (id) => {
     setActionsError("");
-    const url = `http://localhost:5000/api/order/${id}/${user.uid}`;
+    const url = `https://dark-phantom-53445.herokuapp.com/api/order/${id}/${user.uid}`;
     const updateOrder = async () => {
       console.log("inside patch");
       const result = await axios.patch(url);
@@ -30,7 +30,7 @@ const AllOrder = () => {
 
   const handleDelete = (id) => {
     setActionsError("");
-    const url = `http://localhost:5000/api/order/${id}/${user.uid}`;
+    const url = `https://dark-phantom-53445.herokuapp.com/api/order/${id}/${user.uid}`;
     const deleteOrder = async () => {
       const result = await axios.delete(url);
       console.log(result);
@@ -47,7 +47,9 @@ const AllOrder = () => {
   useEffect(() => {
     const fetchAllOrders = async () => {
       setAllOrdersLoading(true);
-      const result = await axios("http://localhost:5000/api/order");
+      const result = await axios(
+        "https://dark-phantom-53445.herokuapp.com/api/order"
+      );
       const allOrders = result.data.allOrders;
       const populatedAllOrders = allOrders.map((order) => {
         const indexOfOrder = tours.findIndex(
