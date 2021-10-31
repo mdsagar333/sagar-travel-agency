@@ -8,7 +8,7 @@ import Tours from "./Component/Tours/Tours";
 const Home = () => {
   return (
     <div>
-      {/* <Banner></Banner> */}
+      <Banner></Banner>
       <Tours />
       <Testimonial></Testimonial>
       <Gallery></Gallery>
