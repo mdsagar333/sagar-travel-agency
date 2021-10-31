@@ -10,3 +10,4 @@
 - This site use firebase for authentication.
 - It has a hidden route for admin. Details information will be found inside info.txt
 - Also this project has its own server and API endpoint for data
+- I have used video for banner so it may slow down the website. I know it's not good practice or thing but I did it for sake of design. So please bear it untill it load.
