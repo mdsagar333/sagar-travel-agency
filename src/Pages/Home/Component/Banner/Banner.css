@@ -1,6 +1,7 @@
 /* banner section sytles */
 .banner_container {
   position: relative;
+  min-height: 250px;
 }
 
 .banner_text_info_container {
